@@ -1,4 +1,5 @@
 import { posts } from "../data/posts";
+import { Link } from "react-router-dom";
 
 const Blog = () => {
   const formatDate = (jsonDate: string) => {
@@ -30,11 +31,13 @@ const Blog = () => {
           const limitedContent = limitContent(post.content);
           const replacedContent = replaceContent(limitedContent);
           return (
-            <div className="shadow-md m-12" key={post.id}>
-              <p className="p-4 text-xs">{formattedDate}</p>
-              <h2 className="p-2 text-2xl">{post.title}</h2>
-              <p className="p-4"> {replacedContent}</p>
-            </div>
+            <Link to={`/post/${post.id}`} key={post.id}>
+              <div className="shadow-md m-12" key={post.id}>
+                <p className="p-4 text-xs">{formattedDate}</p>
+                <h2 className="p-2 text-2xl">{post.title}</h2>
+                <p className="p-4"> {replacedContent}</p>
+              </div>
+            </Link>
           );
         })}
       </div>
