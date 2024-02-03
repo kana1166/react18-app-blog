@@ -1,7 +1,20 @@
-import { posts } from "../data/posts";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { PostInterface } from "../types/type";
 
-const Blog = () => {
+const Blog: React.FC = () => {
+  const [post, setPost] = useState([]);
+  useEffect(() => {
+    const fecher = async () => {
+      const response = await fetch(
+        "https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts"
+      );
+      const { posts } = await response.json();
+      setPost(posts);
+    };
+    fecher();
+  }, []);
+
   const formatDate = (jsonDate: string) => {
     const dateObj = new Date(jsonDate);
     const year = dateObj.getFullYear();
@@ -26,7 +39,7 @@ const Blog = () => {
   return (
     <>
       <div>
-        {posts.map((post) => {
+        {post.map((post: PostInterface) => {
           const formattedDate = formatDate(post.createdAt);
           const limitedContent = limitContent(post.content);
           const replacedContent = replaceContent(limitedContent);
