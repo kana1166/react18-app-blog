@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import InputField from "./InputField"; // 仮定のパス、実際には適切なパスを指定してください
-import TextareaField from "./TextareaField"; // 仮定のパス
-import useFormValidation from "../utils/useFormValidation"; // 仮定のパス
+import InputField from "./InputField";
+import TextareaField from "./TextareaField";
+import useFormValidation from "../utils/useFormValidation";
 
 const Contact: React.FC = () => {
   const [name, setName] = useState("");
