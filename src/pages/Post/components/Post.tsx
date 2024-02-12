@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { PostInterface } from "../types/type";
+import { PostInterface } from "../../../types/type";
 import { useParams } from "react-router-dom";
 
 const Post: React.FC = () => {

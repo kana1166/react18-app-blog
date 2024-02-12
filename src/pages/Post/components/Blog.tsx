@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { PostInterface } from "../types/type";
+import { PostInterface } from "../../../types/type";
 
 const Blog: React.FC = () => {
   const [post, setPost] = useState([]);
